@@ -1,0 +1,104 @@
+@import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&family=Inter:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Custom scrolling behavior */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Base typography */
+@layer base {
+  body {
+    @apply bg-secondary text-primary font-sans leading-relaxed;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-serif font-bold tracking-tight;
+  }
+  
+  h1 {
+    @apply text-5xl md:text-7xl;
+  }
+  
+  h2 {
+    @apply text-4xl md:text-5xl mb-6;
+  }
+  
+  h3 {
+    @apply text-2xl md:text-3xl;
+  }
+  
+  p {
+    @apply text-lg leading-8;
+  }
+}
+
+/* Smooth fade animations */
+@layer utilities {
+  .fade-in {
+    animation: fadeIn 1s ease-in;
+  }
+  
+  .fade-in-delay {
+    animation: fadeIn 1.2s ease-in 0.3s both;
+  }
+  
+  .slide-up {
+    animation: slideUp 0.8s ease-out;
+  }
+  
+  .parallax {
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+}
+
+/* Scroll indicator animation */
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(8px);
+  }
+}
+
+.scroll-indicator {
+  animation: bounce 2s infinite;
+}
+
+/* Gradient text effect */
+.gradient-text {
+  background: linear-gradient(135deg, #000000 0%, #2C2C2C 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Card hover effect */
+.card-hover {
+  @apply transition-all duration-300 ease-out;
+}
+
+.card-hover:hover {
+  @apply shadow-2xl transform -translate-y-2;
+}
+
+/* Image overlay effect */
+.image-overlay {
+  @apply relative overflow-hidden;
+}
+
+.image-overlay::after {
+  content: '';
+  @apply absolute inset-0 bg-black bg-opacity-40 transition-opacity duration-300;
+}
+
+.image-overlay:hover::after {
+  @apply bg-opacity-20;
+}
